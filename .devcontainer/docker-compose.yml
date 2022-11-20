@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  dotnet-grpc:
+    image: mcr.microsoft.com/devcontainers/dotnet:0-6.0
+    container_name: dotnet-grpc
+
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ..:/workspaces/dotnet-grpc:cached
+    
+    command: sleep infinity
+
+    networks:
+      - dg-network
+
+networks:
+  dg-network:
+    name: dg-network
